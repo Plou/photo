@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  h1 Yo generator-express MVC!
+  .images
+    each image in images
+      .image
+        h2= image.title
+        date= image.date
+        p= image.url
+        p= image.text
+        p= image.id
