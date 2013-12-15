@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 var ImagesSchema = new Schema({
   title: String,
-  src: String,
+  type: String,
   album_id: String,
 });
 
