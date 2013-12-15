@@ -1,1 +1,10 @@
-<a href="#images/<%=_id%>"><%=title%></a><br />
+<a href="#images/<%=_id%>/albums"><%=title%></a><br />
+<% if(albums.length){ %>
+    <div>
+        <% _.each(albums, function(album){ %>
+            <div>
+                <a href="#albums/<%=album._id%>/images"><%=album.title%></a><br />
+            </div>
+        <% }) %>
+    </div>
+<% } %>

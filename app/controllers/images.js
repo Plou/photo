@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
   Images = mongoose.model('Images');
+  Albums = mongoose.model('Albums');
 
 exports.index = function(req, res){
   Images.find(function(err, images){
@@ -14,12 +15,11 @@ exports.one = function(req, res){
     res.json(image);
   });
 };
-
-exports.byAlbum = function(req, res){
-    Images.find({ album_id: req.params.id}, function(err, images){
-      if(err) throw new Error(err);
-      res.json(images);
-    });
+exports.oneWithAlbums = function(req, res){
+  Images.findOne({ _id: req.params.id}).populate('albums').exec( function(err, image){
+    if(err) throw new Error(err);
+    res.json(image);
+  });
 };
 
 exports.new = function(req, res){

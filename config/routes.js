@@ -8,7 +8,7 @@ module.exports = function(app){
     app.post('/images', images.new);
     app.put('/images/:id', images.put);
     app.delete('/images/:id', images.delete);
-    app.get('/images/:id/albums', images.byAlbum);
+    app.get('/images/:id/albums', images.oneWithAlbums);
 
     var albums = require('../app/controllers/albums');
     app.get('/albums', albums.index);

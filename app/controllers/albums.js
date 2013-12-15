@@ -16,13 +16,9 @@ exports.one = function(req, res){
   });
 };
 exports.oneWithImages = function(req, res){
-  Albums.findOne({ _id: req.params.id}, function(err, album){
+  Albums.findOne({ _id: req.params.id}).populate('images').exec( function(err, album){
     if(err) throw new Error(err);
-    Images.find({ album_id: album._id}, function(err, images){
-      if(err) throw new Error(err);
-      album.images = images;
-      res.json(album);
-    });
+    res.json(album);
   });
 };
 

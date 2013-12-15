@@ -1,0 +1,10 @@
+<a href="#albums/<%=_id%>/images"><%=title%></a>
+    <% if(images.length && typeof(images[0]) == 'object'){ %>
+        <div>
+        <% _.each(images, function(image){ %>
+            <div>
+                <a href="#images/<%=image._id%>/albums"><%=image.title%></a><br />
+            </div>
+        <% }) %>
+    </div>
+<% } %>

@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
 var AlbumsSchema = new Schema({
   title: String,
   author: String,
-  images: Array,
+  images: [{ type: Schema.Types.ObjectId, ref: 'Images' }],
 });
 
 AlbumsSchema.virtual('date')
