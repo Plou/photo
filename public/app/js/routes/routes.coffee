@@ -8,16 +8,29 @@ AlbumsModel = require '../models/albums.coffee'
 
 module.exports = class Router extends Backbone.Router
   routes:
-    '': 'welcome'
-    'images': 'images'
-    'images/:id': 'images'
-    'images/:id/:albums': 'images'
+    '': 'home'
     'albums': 'albums'
     'albums/:id': 'albums'
     'albums/:id/:images': 'albums'
+    'images': 'images'
+    'images/:id': 'images'
+    'images/:id/:albums': 'images'
 
-  welcome: () ->
-    @.images()
+  home: () ->
+    @.navigate 'albums', trigger: true
+
+  albums: (id, images) ->
+    albumsCollection = new AlbumsCollection
+    if id?
+      albumsCollection.id = id
+    if images? && images == 'images'
+      albumsCollection.images = true
+
+    albumsCollection.fetch
+      success: (albums) =>
+        albumsView = new AlbumsView collection: albums
+        publicApp.main.show(albumsView)
+        albumsView.render()
 
   images: (id, albums) ->
     imagesCollection = new ImagesCollection
@@ -32,17 +45,4 @@ module.exports = class Router extends Backbone.Router
         publicApp.main.show(imagesView)
         imagesView.render()
 
-
-  albums: (id, images) ->
-    albumsCollection = new AlbumsCollection
-    if id?
-      albumsCollection.id = id
-    if images? && images == 'images'
-      albumsCollection.images = true
-
-    albumsCollection.fetch
-      success: (albums) =>
-        albumsView = new AlbumsView collection: albums
-        publicApp.main.show(albumsView)
-        albumsView.render()
 
