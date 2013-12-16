@@ -1,8 +1,6 @@
-images_template = require '../templates/images.html'
-
-class ImageView extends Backbone.Marionette.ItemView
-  tagName: 'div'
-  template: images_template
+ImageView = require '../views/image.coffee'
 
 module.exports = class ImagesView extends Backbone.Marionette.CollectionView
+  tagName: 'div'
+  className: 'images'
   itemView: ImageView

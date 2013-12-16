@@ -1,8 +1,7 @@
-albums_template = require '../templates/albums.html'
-
-class AlbumView extends Backbone.Marionette.ItemView
-  tagName: 'div'
-  template: albums_template
+AlbumView = require '../views/album.coffee'
 
 module.exports = class AlbumsView extends Backbone.Marionette.CollectionView
+  tagName: 'div'
+  className: 'albums'
   itemView: AlbumView
+

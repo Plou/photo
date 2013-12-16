@@ -11,20 +11,19 @@ module.exports = class Router extends Backbone.Router
     '': 'home'
     'albums': 'albums'
     'albums/:id': 'albums'
-    'albums/:id/:images': 'albums'
+
     'images': 'images'
     'images/:id': 'images'
-    'images/:id/:albums': 'images'
+
 
   home: () ->
     @.navigate 'albums', trigger: true
 
-  albums: (id, images) ->
+  albums: (id, images, image_id) ->
     albumsCollection = new AlbumsCollection
     if id?
       albumsCollection.id = id
-    if images? && images == 'images'
-      albumsCollection.images = true
+    albumsCollection.url = albumsCollection.url() + '/images'
 
     albumsCollection.fetch
       success: (albums) =>
@@ -32,17 +31,15 @@ module.exports = class Router extends Backbone.Router
         publicApp.main.show(albumsView)
         albumsView.render()
 
-  images: (id, albums) ->
+
+  images: (id, albums, album_id) ->
     imagesCollection = new ImagesCollection
     if id?
       imagesCollection.id = id
-    if albums? && albums == 'albums'
-      imagesCollection.albums = true
+    imagesCollection.url = imagesCollection.url() + '/albums'
 
     imagesCollection.fetch
       success: (images) =>
         imagesView = new ImagesView collection: images
         publicApp.main.show(imagesView)
         imagesView.render()
-
-

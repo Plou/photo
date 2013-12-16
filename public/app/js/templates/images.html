@@ -1,10 +1,11 @@
-<a href="#images/<%=_id%>/albums"><%=title%></a><br />
-<% if(albums.length){ %>
-    <div>
-        <% _.each(albums, function(album){ %>
-            <div>
-                <a href="#albums/<%=album._id%>/images"><%=album.title%></a><br />
-            </div>
-        <% }) %>
+<% if(albums && albums.length > 0){ %>
+   <div class="albums">
+       <% _.each(albums, function(album){ %>
+           <div class="album">
+               <a href="#albums/<%=album._id%>"><%=album.title%></a>
+       <% }) %>
     </div>
 <% } %>
+<a href="#images/<%=_id%>" data-src="<%=_id+'.'+type%>">
+ <img src="/uploads/HD/<%=_id+'.'+type%>" alt="<%=title%>" width="120">
+</a>

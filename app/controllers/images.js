@@ -1,9 +1,14 @@
 var mongoose = require('mongoose'),
   Images = mongoose.model('Images');
-  Albums = mongoose.model('Albums');
 
 exports.index = function(req, res){
   Images.find(function(err, images){
+    if(err) throw new Error(err);
+    res.json(images);
+  });
+};
+exports.allWithAlbums = function(req, res){
+  Images.find().populate('albums').exec( function(err, images){
     if(err) throw new Error(err);
     res.json(images);
   });

@@ -1,3 +1,7 @@
 module.exports = class ImagesModel extends Backbone.Model
-  urlRoot : '/images'
+  url : () ->
+    if @.id
+      '/albums/' + @.id
+    else
+      '/albums'
   defaults : {}
