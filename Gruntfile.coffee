@@ -36,6 +36,11 @@ module.exports = (grunt) ->
           "public/app/js/**/*.html"
         ]
         tasks: ["browserify"]
+      sass:
+        files: [
+          "public/app/css/src/*.scss"
+        ]
+        tasks: ["sass"]
 
     browserify:
       app:
