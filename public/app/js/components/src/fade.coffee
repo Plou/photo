@@ -14,7 +14,7 @@ $ ->
 
         $($slides[index])
         .css('z-index', 100)
-        .fadeIn(1500)
+        .fadeIn(600)
         setTimeout ->
           $($slides[index])
                 .css( 'z-index', 99 )
@@ -24,7 +24,7 @@ $ ->
                 .hide()
             )
           $screen.data('busy', false);
-        , 1500
+        , 600
 
         $screen.data('index', index)
 
@@ -53,7 +53,7 @@ $ ->
       $(this)
         .css('z-index', slidesLength-i)
         .data('z-index', slidesLength-i)
-      $controls.append $('<button class="control" href="#">'+i+'</button>')
+      $controls.append $('<button class="control btn" href="#">'+i+'</button>')
 
     $controls.find(".control:first-child").addClass "active"
     $screen.after $controls

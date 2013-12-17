@@ -1,6 +1,6 @@
 <a href="#albums/<%=_id%>">
 <% if(images && images.length > 0){ %>
-    <img src="/uploads/HD/<%=images[Math.floor(Math.random()*images.length)]._id+'.'+images[Math.floor(Math.random()*images.length)].type%>" alt="<%=images[Math.floor(Math.random()*images.length)].title%>" width="160">
+    <img src="/uploads/HD/<%=images[Math.floor(Math.random()*images.length)]._id+'.'+images[Math.floor(Math.random()*images.length)].type%>" alt="<%=images[Math.floor(Math.random()*images.length)].title%>" width="160" height="128">
     <h2><%=title%></h2>
 <% } else { %>
     <%=title%>

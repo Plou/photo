@@ -17,13 +17,27 @@ module.exports = class AlbumsView extends Backbone.Marionette.CollectionView
       .removeClass('active')
       .find('.images').hide()
     else
-      $album.find('.images').show()
+      offset = $album.offset().top + $album.height()
+      duration = 300
+      if $album.prevAll('.album.active').index() >= 0 && $album.prevAll('.album.active').offset().top < $album.offset().top
+        offset -= 250
+
+      if $album.siblings('.album.active').index() >= 0 &&  $album.siblings('.album.active').offset().top == $album.offset().top
+        duration = 0
+        $album
+          .css(
+            "transition": "none"
+          )
+      $album.find('.images')
+        .css(
+          top: Math.round offset
+        )
+        .fadeIn(duration)
       $album
         .addClass('active')
         .siblings()
         .removeClass('active')
         .find('.images').hide()
-
   initSlideShow: (e) ->
     e.preventDefault()
     e.preventDefault()

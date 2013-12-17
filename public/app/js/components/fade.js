@@ -15,13 +15,13 @@
             index = slidesLength - 1;
           }
           $($controls.find('button')[index]).addClass('active').siblings().removeClass('active');
-          $($slides[index]).css('z-index', 100).fadeIn(1500);
+          $($slides[index]).css('z-index', 100).fadeIn(600);
           setTimeout(function() {
             $($slides[index]).css('z-index', 99).siblings().each(function() {
               return $(this).css('z-index', $(this).data('z-index')).hide();
             });
             return $screen.data('busy', false);
-          }, 1500);
+          }, 600);
           return $screen.data('index', index);
         }
       };
@@ -41,7 +41,7 @@
       $controls = $('<div class="controls" />');
       $slides.each(function(i) {
         $(this).css('z-index', slidesLength - i).data('z-index', slidesLength - i);
-        return $controls.append($('<button class="control" href="#">' + i + '</button>'));
+        return $controls.append($('<button class="control btn" href="#">' + i + '</button>'));
       });
       $controls.find(".control:first-child").addClass("active");
       $screen.after($controls);

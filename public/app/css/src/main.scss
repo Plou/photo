@@ -28,20 +28,28 @@ h6, .h6-like { font-size: 1.4em; }
 
 // ## General
 
-body { background: $black; color: $white; }
+body { position: absolute; top: 0; right: 0; bottom: 0; left: 0; overflow-y: auto; background: $black; color: $white; }
 
 // Use class **page** to set the max-width of the website
 .page { @include page; }
 
 // Links
-a { color: $white; }
+a { color: $white; transition: .3s 0 all;
+    &:hover { text-decoration: none; }
+}
+a > img { display: block; }
+
+.btn { box-sizing: content-box; border: 1px solid $black; padding: 10px; border-radius: 2px; background-color: $grey2; color: $white; cursor: pointer; outline: none;
+    &.active { outline: solid rgba(255,255,255,0.7) 1px; }
+    &:hover {  background-color: $white; color: $grey2; }
+}
 
 .align-center { text-align: center; }
 .align-justify { text-align: justify; }
 
 
 // The light separator
-hr { margin: 4*$u auto; border: none; height: 1px; background-color: $grey; }
+hr { margin: 4*$u auto; border: none; height: 1px; background-color: $grey1; }
 
 hr.clear {clear: both;  height: 0px; }
 
@@ -51,16 +59,36 @@ hr.clear {clear: both;  height: 0px; }
 }
 
 // ## components
-.album { display: inline-block; margin: 20px; vertical-align: middle; text-align: center;
-    .images { display: none; position: absolute; left: 20px; top: 256px; }
-    &.active .images { display: block; }
+.albums { padding: 32px; text-align: center;}
+.album { display: inline-block; margin: 10px 5px; vertical-align: top; transition: .3s 0 all;
+    &.active { margin-bottom: 260px;
+        > a {  background-color: $white;
+            h2 { color: $black; font-weight: 400; }
+            &::after {opacity: 1; transition: .15s .15s all;  }
+        }
+    }
+    > a { position: relative; display: block; border:1px solid $black; padding: 10px 10px 5px 10px; border-radius: 2px; background-color: $grey2; text-align: right;
+        &:hover, { background-color: $white;
+            h2 { color: $black; font-weight: 400; }
+        }
+        &::after { content: ' '; position: absolute; left: 50%; top: 100%; margin-left: -5px; border: 10px solid $white; border-bottom: 0; border-left-color: transparent; border-right-color: transparent; opacity: 0; transition: .15s 0 all; }
+    }
+    > img { display: block; }
+    h2 { margin: 2px 0; font-size: 1.6em; line-height: 1.2; font-weight: 300; color: $white; }
+    .images { display: none; position: absolute; left: 0; right: 0; margin-top: 10px; padding: 32px; height: 182px; background: $grey2; overflow-x: auto;}
+    .image { margin: 5px; }
 }
 
 .image { display: inline-block; }
 
-[data-view="slideshow"] { display: none; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0,0,0,.5);
-    .close { position: absolute; right: 0; top: 0; z-index: 999;}
-    .controls { position: absolute; right: 0; bottom: 0; z-index: 999;}
+[data-view="slideshow"] { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0,0,0,.5);
+    .image a { display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+        img { position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+    }
+    .close { position: absolute; right: 10px; top: 10px; width: 12px; height: 12px; z-index: 999;}
+    .controls { position: absolute; right: 10px; bottom: 10px; z-index: 999;
+        .btn { margin-left: 5px; padding: 5px; width: 12px; height: 12px; }
+    }
 }
 
 // ## Header

@@ -27,6 +27,10 @@ module.exports = class Router extends Backbone.Router
 
     albumsCollection.fetch
       success: (albums) =>
+# DEV DEBUG
+        # for ( i = 10; i > 2; i-- )
+        #   albums[i] = albums[1]
+
         albumsView = new AlbumsView collection: albums
         publicApp.main.show(albumsView)
         albumsView.render()

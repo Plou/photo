@@ -1,8 +1,9 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100);
 /* line 3, src/reset.scss */
 html { font-size: 62.5%; line-height: 1.3em; }
 
 /* line 4, src/reset.scss */
-body { margin: 0; padding: 0; font-family: Arial, sans-serif; font-size: 1em; color: #2a2b2a; font-weight: 300; }
+body { margin: 0; padding: 0; font-family: "Roboto", Helvetica, Arial, sans-serif; font-size: 1em; color: #2a2b2a; font-weight: 300; }
 
 /* line 6, src/reset.scss */
 a { text-decoration: none; }
@@ -83,7 +84,7 @@ p, li, td, th, textarea, caption, pre, blockquote, label, input, select, textare
 li li, li p, td p, th p, li h1, li .h1-like, li h2, li .h2-like, li h3, li .h3-like, li h4, li .h4-like, li h5, li .h5-like, li h6, li .h6-like, button { font-size: 100%; }
 
 /* line 20, src/main.scss */
-input, select, textarea { font-family: Arial, sans-serif; }
+input, select, textarea { font-family: "Roboto", Helvetica, Arial, sans-serif; }
 
 /* line 21, src/main.scss */
 h1, .h1-like, h2, .h2-like, h3, .h3-like, h4, .h4-like, h5, .h5-like { line-height: 1em; }
@@ -107,7 +108,7 @@ h5, .h5-like { font-size: 1.6em; }
 h6, .h6-like { font-size: 1.4em; }
 
 /* line 31, src/main.scss */
-body { background: #2a2b2a; color: #fafbfa; }
+body { position: absolute; top: 0; right: 0; bottom: 0; left: 0; overflow-y: auto; background: #2a2b2a; color: #fafbfa; }
 
 /* line 34, src/main.scss */
 .page { margin: 0 auto; width: 990px; }
@@ -115,21 +116,33 @@ body { background: #2a2b2a; color: #fafbfa; }
   .page { width: 1200px; max-width: 100%; } }
 
 /* line 37, src/main.scss */
-a { color: #fafbfa; }
-
-/* line 39, src/main.scss */
-.align-center { text-align: center; }
+a { color: #fafbfa; transition: .3s 0 all; }
+/* line 38, src/main.scss */
+a:hover { text-decoration: none; }
 
 /* line 40, src/main.scss */
+a > img { display: block; }
+
+/* line 42, src/main.scss */
+.btn { box-sizing: content-box; border: 1px solid #2a2b2a; padding: 10px; border-radius: 2px; background-color: #474146; color: #fafbfa; cursor: pointer; outline: none; }
+/* line 43, src/main.scss */
+.btn.active { outline: solid rgba(255, 255, 255, 0.7) 1px; }
+/* line 44, src/main.scss */
+.btn:hover { background-color: #fafbfa; color: #474146; }
+
+/* line 47, src/main.scss */
+.align-center { text-align: center; }
+
+/* line 48, src/main.scss */
 .align-justify { text-align: justify; }
 
-/* line 44, src/main.scss */
-hr { margin: 40px auto; border: none; height: 1px; background-color: #444444; }
+/* line 52, src/main.scss */
+hr { margin: 40px auto; border: none; height: 1px; background-color: #1b231d; }
 
-/* line 46, src/main.scss */
+/* line 54, src/main.scss */
 hr.clear { clear: both; height: 0px; }
 
-/* line 49, src/main.scss */
+/* line 57, src/main.scss */
 .nav { display: block; margin: 0; padding: 0; }
 /* line 9, src/mixins.scss */
 .nav li { display: inline-block; margin: 5px; padding: 0; }
@@ -138,22 +151,51 @@ hr.clear { clear: both; height: 0px; }
 /* line 15, src/mixins.scss */
 .nav .second { position: absolute; display: none; }
 
-/* line 54, src/main.scss */
-.album { display: inline-block; margin: 20px; vertical-align: middle; text-align: center; }
-/* line 55, src/main.scss */
-.album .images { display: none; position: absolute; left: 20px; top: 256px; }
-/* line 56, src/main.scss */
-.album.active .images { display: block; }
+/* line 62, src/main.scss */
+.albums { padding: 32px; text-align: center; }
 
-/* line 59, src/main.scss */
+/* line 63, src/main.scss */
+.album { display: inline-block; margin: 10px 5px; vertical-align: top; transition: .3s 0 all; }
+/* line 64, src/main.scss */
+.album.active { margin-bottom: 260px; }
+/* line 65, src/main.scss */
+.album.active > a { background-color: #fafbfa; }
+/* line 66, src/main.scss */
+.album.active > a h2 { color: #2a2b2a; font-weight: 400; }
+/* line 67, src/main.scss */
+.album.active > a::after { opacity: 1; transition: .15s .15s all; }
+/* line 70, src/main.scss */
+.album > a { position: relative; display: block; border: 1px solid #2a2b2a; padding: 10px 10px 5px 10px; border-radius: 2px; background-color: #474146; text-align: right; }
+/* line 71, src/main.scss */
+.album > a:hover { background-color: #fafbfa; }
+/* line 72, src/main.scss */
+.album > a:hover h2 { color: #2a2b2a; font-weight: 400; }
+/* line 74, src/main.scss */
+.album > a::after { content: ' '; position: absolute; left: 50%; top: 100%; margin-left: -5px; border: 10px solid #fafbfa; border-bottom: 0; border-left-color: transparent; border-right-color: transparent; opacity: 0; transition: .15s 0 all; }
+/* line 76, src/main.scss */
+.album > img { display: block; }
+/* line 77, src/main.scss */
+.album h2 { margin: 2px 0; font-size: 1.6em; line-height: 1.2; font-weight: 300; color: #fafbfa; }
+/* line 78, src/main.scss */
+.album .images { display: none; position: absolute; left: 0; right: 0; margin-top: 10px; padding: 32px; height: 182px; background: #474146; overflow-x: auto; }
+/* line 79, src/main.scss */
+.album .image { margin: 5px; }
+
+/* line 82, src/main.scss */
 .image { display: inline-block; }
 
-/* line 61, src/main.scss */
-[data-view="slideshow"] { display: none; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, 0.5); }
-/* line 62, src/main.scss */
-[data-view="slideshow"] .close { position: absolute; right: 0; top: 0; z-index: 999; }
-/* line 63, src/main.scss */
-[data-view="slideshow"] .controls { position: absolute; right: 0; bottom: 0; z-index: 999; }
+/* line 84, src/main.scss */
+[data-view="slideshow"] { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, 0.5); }
+/* line 85, src/main.scss */
+[data-view="slideshow"] .image a { display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+/* line 86, src/main.scss */
+[data-view="slideshow"] .image a img { position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto; }
+/* line 88, src/main.scss */
+[data-view="slideshow"] .close { position: absolute; right: 10px; top: 10px; width: 12px; height: 12px; z-index: 999; }
+/* line 89, src/main.scss */
+[data-view="slideshow"] .controls { position: absolute; right: 10px; bottom: 10px; z-index: 999; }
+/* line 90, src/main.scss */
+[data-view="slideshow"] .controls .btn { margin-left: 5px; padding: 5px; width: 12px; height: 12px; }
 
 @media screen and (min-width: 0px) { /* line 3, src/mediaqueries.scss */
   .csc-textpic-imagewrap, img { max-width: 100%; height: auto; } }

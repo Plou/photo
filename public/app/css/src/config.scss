@@ -13,7 +13,9 @@ $gutter     : 30 / $max * 100%;
 
 // # Colors
 $white          : #fafbfa;
-$grey           : #444;
+$grey2           : rgb(71, 65, 70);
+$grey3           : rgb(51, 49, 50);
+$grey1           : rgb(27, 35, 29);
 $black          : #2a2b2a;
 
 $red            : #BC2422;
@@ -23,4 +25,6 @@ $outlineBlue    : #aad4ff;
 $errorRed       : #e04831;
 
 // # Fonts
-$font   : Arial, sans-serif;
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100);
+
+$font   : "Roboto", Helvetica, Arial, sans-serif;

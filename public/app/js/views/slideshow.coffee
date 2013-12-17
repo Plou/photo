@@ -8,7 +8,7 @@ module.exports = class SlideshowView extends Backbone.View
     # options.content = options.content.replace('/uploads/LD/', '/uploads/MD/')
     options.content = options.content.replace(/width="112"/g, '')
     @.$el
-      .append('<button class="close">close</button')
+      .append('<button class="close btn">X</button')
       .append('<div class="slideshow">'+options.content+'</div>')
       .fadeIn()
       .find('.slideshow')
