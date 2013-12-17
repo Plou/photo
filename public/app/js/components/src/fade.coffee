@@ -1,14 +1,5 @@
 $ ->
   $.fn.fade = ( selector = '.item') ->
-    stopAutoTimer = ->
-      clearInterval autoTimer
-
-    resetAutoTimer  = ->
-      clearInterval(autoTimer)
-      autoTimer = setInterval ->
-        goTo $screen.data('index')+1
-      , 7000
-
     goTo = (index) ->
       unless $screen.data('busy')
         $screen.data('busy', true)
@@ -24,7 +15,6 @@ $ ->
         $($slides[index])
         .css('z-index', 100)
         .fadeIn(1500)
-
         setTimeout ->
           $($slides[index])
                 .css( 'z-index', 99 )
@@ -37,15 +27,13 @@ $ ->
         , 1500
 
         $screen.data('index', index)
-        # resetAutoTimer()
 
     # Initialize
     $screen = $(this)
     $slides = $(this).find(selector)
     slidesLength = $slides.length
-    autoTimer = setInterval(->)
     $screen
-      .data('index', 0)
+    .data('index', 0)
       .addClass 'slideshow-active'
 
     $slides.css
@@ -70,13 +58,19 @@ $ ->
     $controls.find(".control:first-child").addClass "active"
     $screen.after $controls
 
-    # resetAutoTimer()
 
     $controls.click (e) ->
       e.preventDefault()
       goTo $(e.target).closest('button').index()
 
 
-
-    $(this).on 'stop', ->
-      stopAutoTimer()
+    $(window).on 'load resize', ->
+      $screen.css({
+        'height': $screen.width() / $screen.find('img').first().getRatio()
+      })
+      $slides.css({
+        'top' : 0,
+        'right' : 0,
+        'bottom' : 0,
+        'left' : 0,
+      })

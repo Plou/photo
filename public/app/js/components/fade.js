@@ -1,20 +1,10 @@
 (function() {
   $(function() {
     return $.fn.fade = function(selector) {
-      var $controls, $screen, $slides, autoTimer, goTo, resetAutoTimer, slidesLength, stopAutoTimer;
+      var $controls, $screen, $slides, goTo, slidesLength;
       if (selector == null) {
         selector = '.item';
       }
-      stopAutoTimer = function() {
-        return clearInterval(autoTimer);
-      };
-      resetAutoTimer = function() {
-        var autoTimer;
-        clearInterval(autoTimer);
-        return autoTimer = setInterval(function() {
-          return goTo($screen.data('index') + 1);
-        }, 7000);
-      };
       goTo = function(index) {
         if (!$screen.data('busy')) {
           $screen.data('busy', true);
@@ -38,7 +28,6 @@
       $screen = $(this);
       $slides = $(this).find(selector);
       slidesLength = $slides.length;
-      autoTimer = setInterval(function() {});
       $screen.data('index', 0).addClass('slideshow-active');
       $slides.css({
         'position': 'absolute',
@@ -60,8 +49,16 @@
         e.preventDefault();
         return goTo($(e.target).closest('button').index());
       });
-      return $(this).on('stop', function() {
-        return stopAutoTimer();
+      return $(window).on('load resize', function() {
+        $screen.css({
+          'height': $screen.width() / $screen.find('img').first().getRatio()
+        });
+        return $slides.css({
+          'top': 0,
+          'right': 0,
+          'bottom': 0,
+          'left': 0
+        });
       });
     };
   });
