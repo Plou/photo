@@ -29,13 +29,23 @@ module.exports = (grunt) ->
         files: ["app/views/**/*.jade"]
 
       # Backbone
-      coffee:
+      coffeeify:
         files: [
           "public/app/js/*.coffee"
           "public/app/js/**/*.coffee"
           "public/app/js/**/*.html"
         ]
+        ignore: [
+          "public/app/js/components/*.coffee"
+        ]
         tasks: ["browserify"]
+
+      coffee:
+        files: [
+          "public/app/js/components/src/*.coffee"
+        ]
+        tasks: ["coffee"]
+
       sass:
         files: [
           "public/app/css/src/*.scss"
@@ -48,6 +58,9 @@ module.exports = (grunt) ->
           transform: [
             'coffeeify'
             'node-underscorify'
+          ]
+          ignore: [
+            "public/app/js/components/*.coffee"
           ]
           debug: true
           shim:
@@ -84,6 +97,24 @@ module.exports = (grunt) ->
         ]
         dest: 'public/app/js/main.js'
 
+    coffee:
+      options:
+        sourcemap: true
+        style: "compact"
+        precision: 20
+        lineNumbers: true
+      all:
+        files: [
+          expand: true
+          cwd: 'public/app/js/components/src'
+          src: [
+            '*.coffee'
+            '**/*.coffee'
+          ]
+          dest: 'public/app/js/components'
+          ext: '.js'
+        ]
+
     sass:
       all:
         options:
@@ -111,6 +142,7 @@ module.exports = (grunt) ->
     ), 500
 
   grunt.registerTask "default", [
+    "coffee",
     "browserify",
     "sass",
     "develop",

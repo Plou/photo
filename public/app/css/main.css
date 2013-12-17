@@ -139,7 +139,7 @@ hr.clear { clear: both; height: 0px; }
 .nav .second { position: absolute; display: none; }
 
 /* line 54, src/main.scss */
-.album { display: inline-block; vertical-align: middle; margin: 20px; }
+.album { display: inline-block; margin: 20px; vertical-align: middle; text-align: center; }
 /* line 55, src/main.scss */
 .album .images { display: none; position: absolute; left: 20px; top: 256px; }
 /* line 56, src/main.scss */
@@ -150,6 +150,10 @@ hr.clear { clear: both; height: 0px; }
 
 /* line 61, src/main.scss */
 [data-view="slideshow"] { display: none; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, 0.5); }
+/* line 62, src/main.scss */
+[data-view="slideshow"] .close { position: absolute; right: 0; top: 0; z-index: 999; }
+/* line 63, src/main.scss */
+[data-view="slideshow"] .controls { position: absolute; right: 0; bottom: 0; z-index: 999; }
 
 @media screen and (min-width: 0px) { /* line 3, src/mediaqueries.scss */
   .csc-textpic-imagewrap, img { max-width: 100%; height: auto; } }
