@@ -28,6 +28,11 @@ module.exports = class AlbumsView extends Backbone.Marionette.CollectionView
           .css(
             "transition": "none"
           )
+      else
+        $album
+          .css(
+            "transition": ".3s 0 all"
+          )
       $album.find('.images')
         .css(
           top: Math.round offset

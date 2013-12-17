@@ -152,7 +152,7 @@ hr.clear { clear: both; height: 0px; }
 .nav .second { position: absolute; display: none; }
 
 /* line 62, src/main.scss */
-.albums { padding: 32px; text-align: center; }
+.albums { padding: 32px; }
 
 /* line 63, src/main.scss */
 .album { display: inline-block; margin: 10px 5px; vertical-align: top; transition: .3s 0 all; }
@@ -165,19 +165,19 @@ hr.clear { clear: both; height: 0px; }
 /* line 67, src/main.scss */
 .album.active > a::after { opacity: 1; transition: .15s .15s all; }
 /* line 70, src/main.scss */
-.album > a { position: relative; display: block; border: 1px solid #2a2b2a; padding: 10px 10px 5px 10px; border-radius: 2px; background-color: #474146; text-align: right; }
+.album > a { position: relative; display: block; border: 1px solid #2a2b2a; padding: 10px 10px 5px 10px; border-radius: 2px; background-color: #474146; text-align: right; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); }
 /* line 71, src/main.scss */
 .album > a:hover { background-color: #fafbfa; }
 /* line 72, src/main.scss */
 .album > a:hover h2 { color: #2a2b2a; font-weight: 400; }
 /* line 74, src/main.scss */
 .album > a::after { content: ' '; position: absolute; left: 50%; top: 100%; margin-left: -5px; border: 10px solid #fafbfa; border-bottom: 0; border-left-color: transparent; border-right-color: transparent; opacity: 0; transition: .15s 0 all; }
-/* line 76, src/main.scss */
-.album > img { display: block; }
+/* line 75, src/main.scss */
+.album > a > .shadow { position: absolute; top: 10px; right: 10px; bottom: 28px; left: 10px; box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2); }
 /* line 77, src/main.scss */
 .album h2 { margin: 2px 0; font-size: 1.6em; line-height: 1.2; font-weight: 300; color: #fafbfa; }
 /* line 78, src/main.scss */
-.album .images { display: none; position: absolute; left: 0; right: 0; margin-top: 10px; padding: 32px; height: 182px; background: #474146; overflow-x: auto; }
+.album .images { display: none; position: absolute; left: -10px; right: -10px; margin-top: 10px; padding: 32px 52px; height: 190px; background: #474146; box-shadow: inset 0px 0px 10px #000; overflow: auto; }
 /* line 79, src/main.scss */
 .album .image { margin: 5px; }
 
@@ -185,7 +185,7 @@ hr.clear { clear: both; height: 0px; }
 .image { display: inline-block; }
 
 /* line 84, src/main.scss */
-[data-view="slideshow"] { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, 0.5); }
+[data-view="slideshow"] { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, 0.87); }
 /* line 85, src/main.scss */
 [data-view="slideshow"] .image a { display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
 /* line 86, src/main.scss */
