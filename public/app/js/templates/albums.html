@@ -1,20 +1,21 @@
 <a href="#albums/<%=_id%>">
-<% if(images && images.length > 0){ %>
-    <div class="shadow"></div>
-      <img src="/uploads/HD/<%=images[Math.floor(Math.random()*images.length)]._id+'.'+images[Math.floor(Math.random()*images.length)].type%>" alt="<%=images[Math.floor(Math.random()*images.length)].title%>" width="160" height="128">
-    <h2><%=title%></h2>
-<% } else { %>
-    <%=title%>
-<% } %>
-<% if(images && images.length > 0){ %>
+  <% if(images && images.length > 0){ %>
+      <div class="shadow"></div>
+        <img src="/uploads/LD/<%=images[Math.floor(Math.random()*images.length)]._id+'.'+images[Math.floor(Math.random()*images.length)].type%>" alt="<%=images[Math.floor(Math.random()*images.length)].title%>" width="128" height="160">
+      <h2><%=title%></h2>
+  <% } else { %>
+      <%=title%>
+  <% } %>
+  <% if(images && images.length > 0){ %>
 </a>
-   <div class="images">
-       <% _.each(images, function(image){ %>
-           <div class="image">
-               <a href="#images/<%=image._id%>" data-src="<%=image._id+'.'+image.type%>">
-                 <img src="/uploads/HD/<%=image._id+'.'+image.type%>" alt="<%=image.title%>" width="112">
-               </a>
-           </div>
-       <% }) %>
-    </div>
+  <div class="images shadow"></div>
+  <div class="images">
+    <% _.each(images, function(image){ %>
+      <div class="image">
+        <a href="#images/<%=image._id%>" data-src="<%=image._id+'.'+image.type%>">
+          <img src="/uploads/thumb/<%=image._id+'.'+image.type%>" alt="<%=image.title%>" width="112">
+        </a>
+      </div>
+    <% }) %>
+  </div>
 <% } %>

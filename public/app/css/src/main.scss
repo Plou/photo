@@ -75,7 +75,7 @@ hr.clear {clear: both;  height: 0px; }
         > .shadow { position: absolute; top: 10px; right: 10px; bottom: 28px; left: 10px; box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);}
     }
     h2 { margin: 2px 0; font-size: 1.6em; line-height: 1.2; font-weight: 300; color: $white; }
-    .images { display: none; position: absolute; left: -10px; right: -10px; margin-top: 10px; padding: 32px 52px; height: 190px; background: $grey2; box-shadow: inset 0px 0px 10px #000; overflow: auto;}
+    .images { display: none; position: absolute; left: -0; right: -0; margin-top: 10px; padding: 32px 52px; height: 125px; background: $grey2; box-shadow: inset 0px 0px 10px #000; overflow: auto;}
     .image { margin: 5px; }
 }
 
