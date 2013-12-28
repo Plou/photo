@@ -6,6 +6,8 @@ AlbumsView = require '../views/albums.coffee'
 AlbumsCollection = require '../collections/albums.coffee'
 AlbumsModel = require '../models/albums.coffee'
 
+UploadView = require '../views/upload.coffee'
+
 module.exports = class Router extends Backbone.Router
   routes:
     '': 'home'
@@ -20,6 +22,7 @@ module.exports = class Router extends Backbone.Router
     @.navigate 'albums', trigger: true
 
   albums: (id, images, image_id) ->
+    @.upload()
     albumsCollection = new AlbumsCollection
     if id?
       albumsCollection.id = id
@@ -27,16 +30,13 @@ module.exports = class Router extends Backbone.Router
 
     albumsCollection.fetch
       success: (albums) =>
-# DEV DEBUG
-        # for ( i = 10; i > 2; i-- )
-        #   albums[i] = albums[1]
-
         albumsView = new AlbumsView collection: albums
         publicApp.main.show(albumsView)
         albumsView.render()
 
 
   images: (id, albums, album_id) ->
+    @.upload()
     imagesCollection = new ImagesCollection
     if id?
       imagesCollection.id = id
@@ -47,3 +47,8 @@ module.exports = class Router extends Backbone.Router
         imagesView = new ImagesView collection: images
         publicApp.main.show(imagesView)
         imagesView.render()
+
+  upload: () ->
+        uploadView = new UploadView
+        publicApp.upload.show(uploadView)
+        uploadView.render()

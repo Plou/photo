@@ -29,6 +29,7 @@ exports.oneWithImages = function(req, res){
 };
 
 exports.new = function(req, res){
+  console.log(req.body)
   new Albums(req.body).save();
   res.end();
 };

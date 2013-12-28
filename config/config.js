@@ -9,7 +9,7 @@ var config = {
       name: 'photo'
     },
     port: 3000,
-    db: 'mongodb://localhost/photo-development'
+    db: 'mongodb://localhost/photo-demo'
   },
 
   test: {

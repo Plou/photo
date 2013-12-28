@@ -20,7 +20,7 @@ module.exports = class AlbumsView extends Backbone.Marionette.CollectionView
       offset = $album.offset().top + $album.height()
       duration = 300
       if $album.prevAll('.album.active').index() >= 0 && $album.prevAll('.album.active').offset().top < $album.offset().top
-        offset -= 250
+        offset -= 190
 
       if $album.siblings('.album.active').index() >= 0 &&  $album.siblings('.album.active').offset().top == $album.offset().top
         duration = 0

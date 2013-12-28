@@ -157,7 +157,7 @@ hr.clear { clear: both; height: 0px; }
 /* line 63, src/main.scss */
 .album { display: inline-block; margin: 10px 5px; vertical-align: top; transition: .3s 0 all; }
 /* line 64, src/main.scss */
-.album.active { margin-bottom: 260px; }
+.album.active { margin-bottom: 200px; }
 /* line 65, src/main.scss */
 .album.active > a { background-color: #fafbfa; }
 /* line 66, src/main.scss */
@@ -196,6 +196,9 @@ hr.clear { clear: both; height: 0px; }
 [data-view="slideshow"] .controls { position: absolute; right: 10px; bottom: 10px; z-index: 999; }
 /* line 90, src/main.scss */
 [data-view="slideshow"] .controls .btn { margin-left: 5px; padding: 5px; width: 12px; height: 12px; }
+
+/* line 95, src/main.scss */
+[data-view="upload"] { display: none; }
 
 @media screen and (min-width: 0px) { /* line 3, src/mediaqueries.scss */
   .csc-textpic-imagewrap, img { max-width: 100%; } }

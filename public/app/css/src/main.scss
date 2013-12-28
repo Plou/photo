@@ -61,7 +61,7 @@ hr.clear {clear: both;  height: 0px; }
 // ## components
 .albums { padding: 32px;}
 .album { display: inline-block; margin: 10px 5px; vertical-align: top; transition: .3s 0 all;
-    &.active { margin-bottom: 260px;
+    &.active { margin-bottom: 200px;
         > a {  background-color: $white;
             h2 { color: $black; font-weight: 400; }
             &::after {opacity: 1; transition: .15s .15s all;  }
@@ -92,7 +92,7 @@ hr.clear {clear: both;  height: 0px; }
 }
 
 // ## Header
-
+[data-view="upload"] { display: none; }
 
 
 // ## Footer

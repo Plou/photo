@@ -1,6 +1,6 @@
 module.exports = function(app){
 
-    //home route
+
 
     var images = require('../app/controllers/images');
     app.get('/images', images.index);
@@ -23,8 +23,8 @@ module.exports = function(app){
     app.put('/albums/:id', albums.put);
     app.delete('/albums/:id', albums.delete);
 
-
-
+    var upload = require('../app/controllers/upload');
+    app.post('/upload', upload.handle);
 
     //Home route
     var index = require('../app/controllers/index');
