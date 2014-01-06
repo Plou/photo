@@ -197,9 +197,6 @@ hr.clear { clear: both; height: 0px; }
 /* line 90, src/main.scss */
 [data-view="slideshow"] .controls .btn { margin-left: 5px; padding: 5px; width: 12px; height: 12px; }
 
-/* line 95, src/main.scss */
-[data-view="upload"] { display: none; }
-
 @media screen and (min-width: 0px) { /* line 3, src/mediaqueries.scss */
   .csc-textpic-imagewrap, img { max-width: 100%; } }
 @media screen and (max-width: 764px) { /* line 9, src/mediaqueries.scss */

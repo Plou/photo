@@ -1,7 +1,7 @@
 <div class="form">
 <h1>Upload</h1>
-<form action="/upload" method="post">
-  <input type="text" name="images" id="files" value="multiple">
+<form action="/upload" method="post" type="multipart/form-data">
+  <input type="text" name="images" id="files">
   <!-- <input type="file" name="images" id="files" multiple="multiple"> -->
   <input type="submit" value="Envoyer">
 </form>
