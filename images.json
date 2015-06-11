@@ -1,8 +1,9 @@
-{ "__v" : 0, "_id" : { "$oid" : "52babbde926f1b1ecd000001" }, "albums" : [ { "$oid" : "52af2ab71469f3fc74000005" } ], "title" : "Servane", "type" : "jpg" }
-{ "__v" : 0, "_id" : { "$oid" : "52af2b191469f3fc74000008" }, "albums" : [ { "$oid" : "52af2ab71469f3fc74000005" } ], "title" : "Maïna", "type" : "jpg" }
-{ "__v" : 0, "_id" : { "$oid" : "52af2b1c1469f3fc74000009" }, "albums" : [ { "$oid" : "52af2ab71469f3fc74000005" } ], "title" : "Louna", "type" : "jpg" }
-{ "__v" : 0, "_id" : { "$oid" : "52af2b201469f3fc7400000a" }, "albums" : [ { "$oid" : "52af2ab71469f3fc74000005" } ], "title" : "Louna", "type" : "jpg" }
-{ "title" : "Maïna", "type" : "jpg", "_id" : { "$oid" : "52af2c001469f3fc7400000b" }, "albums" : [ { "$oid" : "52af2abb1469f3fc74000006" } ], "__v" : 0 }
-{ "title" : "Maïna & Anissa", "type" : "jpg", "_id" : { "$oid" : "52af2c041469f3fc7400000c" }, "albums" : [ { "$oid" : "52af2abb1469f3fc74000006" } ], "__v" : 0 }
-{ "title" : "Margaux", "type" : "jpg", "_id" : { "$oid" : "52af2c071469f3fc7400000d" }, "albums" : [ { "$oid" : "52af2abb1469f3fc74000006" } ], "__v" : 0 }
+[{ "__v" : 0, "_id" : { "$oid" : "52babbde926f1b1ecd000001" }, "albums" : [ { "$oid" : "52af2ab71469f3fc74000005" } ], "title" : "Servane", "type" : "jpg" },
+{ "__v" : 0, "_id" : { "$oid" : "52af2b191469f3fc74000008" }, "albums" : [ { "$oid" : "52af2ab71469f3fc74000005" } ], "title" : "Maïna", "type" : "jpg" },
+{ "__v" : 0, "_id" : { "$oid" : "52af2b1c1469f3fc74000009" }, "albums" : [ { "$oid" : "52af2ab71469f3fc74000005" } ], "title" : "Louna", "type" : "jpg" },
+{ "__v" : 0, "_id" : { "$oid" : "52af2b201469f3fc7400000a" }, "albums" : [ { "$oid" : "52af2ab71469f3fc74000005" } ], "title" : "Louna", "type" : "jpg" },
+{ "title" : "Maïna", "type" : "jpg", "_id" : { "$oid" : "52af2c001469f3fc7400000b" }, "albums" : [ { "$oid" : "52af2abb1469f3fc74000006" } ], "__v" : 0 },
+{ "title" : "Maïna & Anissa", "type" : "jpg", "_id" : { "$oid" : "52af2c041469f3fc7400000c" }, "albums" : [ { "$oid" : "52af2abb1469f3fc74000006" } ], "__v" : 0 },
+{ "title" : "Margaux", "type" : "jpg", "_id" : { "$oid" : "52af2c071469f3fc7400000d" }, "albums" : [ { "$oid" : "52af2abb1469f3fc74000006" } ], "__v" : 0 },
 { "title" : "Maïna", "type" : "jpg", "_id" : { "$oid" : "52af2c0b1469f3fc7400000e" }, "albums" : [ { "$oid" : "52af2abb1469f3fc74000006" } ], "__v" : 0 }
+]

@@ -28,102 +28,6 @@ module.exports = (grunt) ->
       jade:
         files: ["app/views/**/*.jade"]
 
-      # Backbone
-      coffeeify:
-        files: [
-          "public/app/js/*.coffee"
-          "public/app/js/**/*.coffee"
-          "public/app/js/**/*.html"
-        ]
-        ignore: [
-          "public/app/js/components/*.coffee"
-        ]
-        tasks: ["browserify"]
-
-      coffee:
-        files: [
-          "public/app/js/components/src/*.coffee"
-        ]
-        tasks: ["coffee"]
-
-      sass:
-        files: [
-          "public/app/css/src/*.scss"
-        ]
-        tasks: ["sass"]
-
-    browserify:
-      app:
-        options:
-          transform: [
-            'coffeeify'
-            'node-underscorify'
-          ]
-          ignore: [
-            "public/app/js/components/*.coffee"
-          ]
-          debug: true
-          shim:
-            jquery:
-              path: 'public/bower_components/jquery/jquery.js'
-              exports: '$'
-            underscore:
-              path: 'public/bower_components/underscore/underscore.js'
-              exports: '_'
-            backbone:
-              path: 'public/bower_components/backbone/backbone.js'
-              exports: 'Backbone'
-              depends:
-                underscore: 'underscore'
-            'backbone.babysitter':
-              path: 'public/bower_components/backbone.babysitter/lib/backbone.babysitter.js'
-              exports: 'Backbone.Babysitter'
-              depends:
-                backbone: 'Backbone'
-            'backbone.wreqr':
-              path: 'public/bower_components/backbone.wreqr/lib/backbone.wreqr.js'
-              exports: 'Backbone.Wreqr'
-              depends:
-                backbone: 'Backbone'
-            'backbone.marionette':
-              path: 'public/bower_components/backbone.marionette/lib/backbone.marionette.js',
-              exports: 'Marionette'
-              depends:
-                jquery: '$'
-                backbone: 'Backbone'
-                underscore: '_'
-        src: [
-          'public/app/js/main.coffee'
-        ]
-        dest: 'public/app/js/main.js'
-
-    coffee:
-      options:
-        sourcemap: true
-        style: "compact"
-        precision: 20
-        lineNumbers: true
-      all:
-        files: [
-          expand: true
-          cwd: 'public/app/js/components/src'
-          src: [
-            '*.coffee'
-            '**/*.coffee'
-          ]
-          dest: 'public/app/js/components'
-          ext: '.js'
-        ]
-
-    sass:
-      all:
-        options:
-          sourcemap: true
-          style: "compact"
-          precision: 20
-          lineNumbers: true
-        files: ['public/app/css/main.css': 'public/app/css/src/styles.scss']
-
 
   grunt.config.requires "watch.js.files"
   files = grunt.config("watch.js.files")
@@ -142,9 +46,6 @@ module.exports = (grunt) ->
     ), 500
 
   grunt.registerTask "default", [
-    "coffee",
-    "browserify",
-    "sass",
     "develop",
     "watch"
   ]

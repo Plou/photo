@@ -26,8 +26,8 @@ module.exports = function(app){
     var upload = require('../app/controllers/upload');
     app.post('/upload', upload.handle);
 
-    //Home route
-    var index = require('../app/controllers/index');
-    app.get('/', index.render);
+    // //Home route
+    // var index = require('../app/controllers/index');
+    // app.get('/', index.render);
 
 };
